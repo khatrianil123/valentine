@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('https://source.unsplash.com/1600x900/?romantic,couple') center/cover no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    width: 70%;
+}
+
+/* Typewriter */
+.typewriter {
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 5s steps(40) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* Timeline */
+.timeline {
+    padding: 60px 20px;
+}
+
+.timeline h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.story {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.story.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button */
+button {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    border: none;
+    background: #ff4e75;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    background: white;
+    color: #ff4e75;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #ff4e75;
+    transform: rotate(45deg);
+    animation: float 8s linear infinite;
+}
+.heart:before, .heart:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #ff4e75;
+    border-radius: 50%;
+}
+.heart:before { top: -7px; left: 0; }
+.heart:after { left: 7px; top: 0; }
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(45deg); opacity: 1;}
+    100% { transform: translateY(-100px) rotate(45deg); opacity: 0;}
+}
+
+footer {
+    margin: 50px 0;
+    font-size: 1rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>Still You ❤️</h1>
+    <p class="typewriter">No matter how much time passes... my heart still finds its way back to you.</p>
+</div>
+
+<div class="timeline">
+    <h2>Our Story</h2>
+
+    <div class="story">
+        We met. We laughed. We built something beautiful. It wasn’t perfect, but it was real.
+    </div>
+
+    <div class="story">
+        Somewhere along the way, life and misunderstandings pulled us apart… but my feelings never left.
+    </div>
+
+    <div class="story">
+        I’ve grown. I’ve reflected. I’ve understood where I went wrong.
+        And if love means fighting for what truly matters… then I’m still fighting for us.
+    </div>
+
+    <div class="story">
+        I don’t want to repeat the past. I want to build something stronger, softer, and more honest with you.
+    </div>
+
+    <button onclick="reunion()">Will You Give Us Another Chance? 💍</button>
+</div>
+
+<footer>
+Made with love, growth, and a heart that still believes in us.
+</footer>
+
+<script>
+// Reveal stories on scroll
+const stories = document.querySelectorAll('.story');
+window.addEventListener('scroll', () => {
+    stories.forEach(story => {
+        const position = story.getBoundingClientRect().top;
+        if(position < window.innerHeight - 100){
+            story.classList.add('visible');
+        }
+    });
+});
+
+// Floating hearts
+for(let i=0; i<30; i++){
+    let heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random()*100 + 'vw';
+    heart.style.animationDuration = 5 + Math.random()*5 + 's';
+    document.body.appendChild(heart);
+}
+
+function reunion(){
+    alert("No pressure. No expectations. Just two hearts that once loved deeply. If there’s even a small part of you that still feels us… I’m here. Ready to love you better than before. ❤️");
+}
+</script>
+
+</body>
+</html>
